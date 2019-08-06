@@ -8,5 +8,4 @@ class River
     @fish = fish
   end
 
-
 end

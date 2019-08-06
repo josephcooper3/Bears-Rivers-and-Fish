@@ -10,8 +10,8 @@ class Bear
 
   def eat_fish_from_river(river, fish_to_eat)
     for fish in river.fish()
-      if fish == fish_to_eat
-      @stomach << fish
+      if fish.name() == fish_to_eat
+      @stomach << fish.name()
       river.fish.delete(fish)
       end
     end
