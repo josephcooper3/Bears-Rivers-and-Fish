@@ -2,14 +2,12 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../bear')
 require_relative('../river')
-require_relative('../fish')
 
 class BearTest < Minitest::Test
 
   def setup
     @bear = Bear.new("Baloo", "Black")
-    @fish = Fish.new("Steve")
-    @river = River.new("Water of Leith", 53000)
+    @river = River.new("Water of Leith", ["Steve", "Jimmy", "Dave", "Mac the Mackerel", "Finn", "Salmonella", "Magikarp", "Troutington"])
   end
 
   def test_bear_has_name
@@ -25,8 +23,13 @@ class BearTest < Minitest::Test
   end
 
   def test_bear_has_eaten_fish
-    @bear.eat_fish_from_river(@river, @fish)
-    assert_equal(["Steve"], bear.stomach())
+    @bear.eat_fish_from_river(@river, "Steve")
+    assert_equal(["Steve"], @bear.stomach())
+  end
+
+  def test_eaten_fish_has_gone_from_river
+    @bear.eat_fish_from_river(@river, "Steve")
+    assert_equal(["Jimmy", "Dave", "Mac the Mackerel", "Finn", "Salmonella", "Magikarp", "Troutington"], @river.fish())
   end
 
 end
