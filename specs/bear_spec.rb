@@ -8,6 +8,8 @@ class BearTest < Minitest::Test
 
   def setup
     @bear = Bear.new("Baloo", "Black")
+    @fish = Fish.new("Steve")
+    @river = River.new("Water of Leith", 53000)
   end
 
   def test_bear_has_name
@@ -20,6 +22,11 @@ class BearTest < Minitest::Test
 
   def test_bear_stomach_is_empty
     assert_equal([], @bear.stomach())
+  end
+
+  def test_bear_has_eaten_fish
+    @bear.eat_fish_from_river(@river, @fish)
+    assert_equal(["Steve"], bear.stomach())
   end
 
 end

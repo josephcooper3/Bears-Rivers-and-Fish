@@ -7,7 +7,7 @@ require_relative('../fish')
 class RiverTest < Minitest::Test
 
   def setup
-    @river = River.new("Water of Leith", 53000)
+    @river = River.new("Water of Leith", ["Steve", "Jimmy", "Dave", "Mac the Mackerel", "Finn", "Salmonella", "Magikarp", "Troutington"])
   end
 
   def test_river_has_name
@@ -15,7 +15,7 @@ class RiverTest < Minitest::Test
   end
 
   def test_fish_count
-    assert_equal(53000, @river.fish_count())
+    assert_equal(8, @river.fish().count)
   end
 
 end
