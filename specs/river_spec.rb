@@ -14,4 +14,8 @@ class RiverTest < Minitest::Test
     assert_equal("Water of Leith", @river.name())
   end
 
+  def test_fish_count
+    assert_equal(53000, @river.fish_count())
+  end
+
 end
