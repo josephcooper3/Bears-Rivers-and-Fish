@@ -18,4 +18,8 @@ class BearTest < Minitest::Test
     assert_equal("Black", @bear.type())
   end
 
+  def test_bear_stomach_is_empty
+    assert_equal([], @bear.stomach())
+  end
+
 end
